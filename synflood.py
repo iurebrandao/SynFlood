@@ -29,8 +29,8 @@ s.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)
 packet = ''
 
 # Ip de origem e destino
-source_ip = '192.168.1.101'
-dest_ip = '192.168.1.1'
+source_ip = '192.168.0.14'
+dest_ip = '10.0.2.2'
 
 ihl = 5
 version = 4
@@ -87,4 +87,4 @@ tcp_header = pack('!HHLLBBHHH', source, dest, seq, ack_seq, offset_res, tcp_flag
 packet = ip_header + tcp_header
 
 # envia o pacote
-s.sendto(packet, (dest_ip, 1))  # colocar igual a 1 caso queira que realize o flood
+s.sendto(packet, (dest_ip, 10000))  # colocar igual a 1 caso queira que realize o flood
